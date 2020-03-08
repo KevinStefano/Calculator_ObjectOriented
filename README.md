@@ -1,2 +1,5 @@
-# calculator_oop_gui
+# CALCULATOR OOP
 Simple GUI-ed calculator with Object oriented Programming
+
+## Contributors
+Jones Napoleon Autumn
