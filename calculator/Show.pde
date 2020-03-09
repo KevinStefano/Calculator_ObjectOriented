@@ -6,6 +6,10 @@ class Show{
     this.show = "";
   }
   
+  void setShow(String c){
+    this.show = c;
+  }
+  
   void addShow(String c){
     this.show += c;
   }

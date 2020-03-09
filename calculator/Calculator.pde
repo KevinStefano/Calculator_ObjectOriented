@@ -8,9 +8,6 @@ Show screen = new Show();
 void setup(){
   size(360, 640);
   
-  Calculate A = new Calculate("123*43-23+43");
-  println(A.answer());
-  
   float plusHeight = 0;
   float timesWidth = 0;
   for(int i = 0; i < 9; i++){
@@ -46,8 +43,13 @@ void keyTyped(){
   String a = "";
   if(isNumber(key) || isOperand(key)){
     a += key;
+    screen.addShow(a);
   }
-  screen.addShow(a);
+  else if(key == '='){
+    Calculate calculator = new Calculate(screen.getShow());
+    a = String.valueOf(calculator.answer());
+    screen.setShow(a);
+  }
 }
 
 boolean isNumber(char a){

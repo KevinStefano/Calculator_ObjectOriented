@@ -4,6 +4,12 @@ class Calculate{
   Stack<Character> operator;
   ArrayList<String> list;
   
+  Calculate(){
+    stack = new Stack<Double>();
+    operator = new Stack<Character>();
+    list = new ArrayList<String>();
+  }
+  
   Calculate(String input){
     stack = new Stack<Double>();
     operator = new Stack<Character>();
