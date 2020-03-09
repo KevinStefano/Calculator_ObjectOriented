@@ -45,6 +45,7 @@ class Calculate{
       this.checkpoint(stack,operator,this.nextOp(i));
     }
     this.checkpoint(stack,operator,'0');
+    println("ANJIR");
     return stack.pop();
   }
   
@@ -59,12 +60,17 @@ class Calculate{
   
   void checkpoint(Stack<Double> stack, Stack<Character> operator, char nextOp){
     while(stack.size() > 1 && operator.size() > 0){
-      if(this.priorityOp(operator.peek()) >= this.priorityOp(nextOp)){
+      println("Kiri " + this.priorityOp(operator.peek()));
+      println("Kanan " + this.priorityOp(nextOp));
+      if(this.priorityOp(operator.peek()) > this.priorityOp(nextOp)){
         double num_2 = stack.pop();
         double num_1 = stack.pop();
         char op = operator.pop();
         double ans = this.operator(op, num_1, num_2);
         stack.push(ans);
+      }
+      else{
+        break;
       }
     }
   }
@@ -76,12 +82,15 @@ class Calculate{
     else if(a == '*' || a == '/'){
       return 2;
     }
+    else if(a == '^'){
+      return 3;
+    }
     return 0;
   }
   
   boolean isOperand(char a){
     int temp = (int) a;
-    if(temp >= 40 && temp <= 47){
+    if(temp >= 40 && temp <= 47 || temp == 94){
       return true;
     }
     return false;
@@ -109,6 +118,9 @@ class Calculate{
     }
     else if(op == '/'){
       result = num_1 / num_2;
+    }
+    else if(op == '^'){
+      result = Math.pow(num_1, num_2);
     }
     return result;
   }
