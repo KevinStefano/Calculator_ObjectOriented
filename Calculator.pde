@@ -25,9 +25,10 @@ void setup(){
   button.add(new Button("+", 150, (height-100), 50, 100, 255));
   button.add(new Button("-", 150, (height-150), 50, 50, 255));
   button.add(new Button("*", 150, (height-200), 50, 50, 255));
-  button.add(new Button("/", 200, (height-200), 50, 50, 255));
-  button.add(new Button("^", 200, (height-150), 50, 50, 255));
-  button.add(new Button("=", 200, (height-100), 50, 50, 255));
+  button.add(new Button("<-", 200, (height-200), 50, 50, 255));
+  button.add(new Button("/", 200, (height-150), 50, 50, 255));
+  button.add(new Button("^", 200, (height-100), 50, 50, 255));
+  button.add(new Button("=", 200, (height-50), 50, 50, 255));
 }
 
 void draw(){
