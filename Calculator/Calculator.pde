@@ -31,6 +31,7 @@ void setup(){
   button.add(new Operator("sin", 3, 250, (height-50), 50, 50, 255));
   button.add(new Operator("cos", 3, 250, (height-100), 50, 50, 255));
   button.add(new Operator("tan", 3, 250, (height-150), 50, 50, 255));
+   button.add(new Operator("√", 3, 300, (height-150), 50, 50, 255));
   button.add(new Equal(200, (height-50), 50, 50, 255));
   specialButton.add(new MCButton(250, height-200, 50, 50, 255));
   specialButton.add(new MRButton(200, height-200, 50, 50, 255));
@@ -81,6 +82,11 @@ void calculate(){
       num_1 = parser.number.remove();
       num_2 = parser.number.remove();
       Expression e = new PowExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
+      parser.number.push(e.solve());
+    }
+      else if(temp_op == '√'){
+      num_1 = parser.number.remove();
+      Expression e = new RootExpression(new TerminalExpression(num_1));
       parser.number.push(e.solve());
     }
     else if(temp_op == 'c'){
