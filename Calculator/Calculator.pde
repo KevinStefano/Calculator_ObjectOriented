@@ -26,6 +26,9 @@ void setup(){
   button.add(new Operator("*", 2, 150, (height-200), 50, 50, 255));
   button.add(new Operator("/", 2, 200, (height-150), 50, 50, 255));
   button.add(new Operator("^", 3, 200, (height-100), 50, 50, 255));
+  button.add(new Operator("sin", 3, 250, (height-50), 50, 50, 255));
+  button.add(new Operator("cos", 3, 250, (height-100), 50, 50, 255));
+  button.add(new Operator("tan", 3, 250, (height-150), 50, 50, 255));
   button.add(new Equal(200, (height-50), 50, 50, 255));
 }
 
@@ -60,11 +63,17 @@ void calculate(){
       Expression e = new MultiplyExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
       parser.number.push(e.solve());
     }
-    else if(temp_op == '-'){
+    else if(temp_op == '/'){
       num_1 = parser.number.remove();
       num_2 = parser.number.remove();
       Expression e = new DivideExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
       parser.number.push(e.solve());
+    }
+    else if(temp_op == '^'){
+    num_1 = parser.number.remove();
+    num_2 = parser.number.remove();
+    Expression e = new PowExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
+    parser.number.push(e.solve());
     }
   }
 }
