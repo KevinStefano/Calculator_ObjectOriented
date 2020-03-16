@@ -44,7 +44,7 @@ void calculate(){
   char temp_op;
   double num_1, num_2;
   while(parser.operator.size() > 0){
-    temp_op = parser.operator.remove();;
+    temp_op = parser.operator.remove();
     if(temp_op == '+'){
       num_1 = parser.number.remove();
       num_2 = parser.number.remove();
@@ -75,6 +75,29 @@ void calculate(){
     Expression e = new PowExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
     parser.number.push(e.solve());
     }
+    else if(temp_op == 'c'){
+    num_1 = parser.number.remove();
+    temp_op = parser.operator.remove();
+    temp_op = parser.operator.remove();
+    Expression e = new CosExpression(new TerminalExpression(num_1));
+    parser.number.push(e.solve());
+    }
+    else if(temp_op == 's'){
+    num_1 = parser.number.remove();
+    temp_op = parser.operator.remove();
+    temp_op = parser.operator.remove();
+    Expression e = new SinExpression(new TerminalExpression(num_1));
+    parser.number.push(e.solve());
+    }
+    
+    else if(temp_op == 't'){
+    num_1 = parser.number.remove();
+    temp_op = parser.operator.remove();
+    temp_op = parser.operator.remove();
+    Expression e = new TanExpression(new TerminalExpression(num_1));
+    parser.number.push(e.solve());
+    }
+ 
   }
 }
 
