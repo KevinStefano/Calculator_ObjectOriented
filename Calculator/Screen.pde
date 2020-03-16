@@ -1,8 +1,8 @@
-class Show{
+class Screen{
   
   String show;
   
-  Show(){
+  Screen(){
     this.show = "";
   }
   
