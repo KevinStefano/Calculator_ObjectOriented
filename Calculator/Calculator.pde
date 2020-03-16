@@ -28,6 +28,9 @@ void setup(){
   button.add(new Operator("*", 2, 150, (height-200), 50, 50, 255));
   button.add(new Operator("/", 2, 200, (height-150), 50, 50, 255));
   button.add(new Operator("^", 3, 200, (height-100), 50, 50, 255));
+  button.add(new Operator("sin", 3, 250, (height-50), 50, 50, 255));
+  button.add(new Operator("cos", 3, 250, (height-100), 50, 50, 255));
+  button.add(new Operator("tan", 3, 250, (height-150), 50, 50, 255));
   button.add(new Equal(200, (height-50), 50, 50, 255));
   specialButton.add(new MCButton(250, height-200, 50, 50, 255));
   specialButton.add(new MRButton(200, height-200, 50, 50, 255));
@@ -48,7 +51,7 @@ void calculate(){
   char temp_op;
   double num_1, num_2;
   while(parser.operator.size() > 0){
-    temp_op = parser.operator.remove();;
+    temp_op = parser.operator.remove();
     if(temp_op == '+'){
       num_1 = parser.number.remove();
       num_2 = parser.number.remove();
@@ -67,7 +70,7 @@ void calculate(){
       Expression e = new MultiplyExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
       parser.number.push(e.solve());
     }
-    else if(temp_op == '-'){
+    else if(temp_op == '/'){
       num_1 = parser.number.remove();
       num_2 = parser.number.remove();
       Expression e = new DivideExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
@@ -76,17 +79,35 @@ void calculate(){
     else if(temp_op == '^'){
       num_1 = parser.number.remove();
       num_2 = parser.number.remove();
-      Expression e = new PowerExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
+      Expression e = new PowExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
+      parser.number.push(e.solve());
+    }
+    else if(temp_op == 'c'){
+      num_1 = parser.number.remove();
+      temp_op = parser.operator.remove();
+      temp_op = parser.operator.remove();
+      Expression e = new CosExpression(new TerminalExpression(num_1));
+      parser.number.push(e.solve());
+    }
+    else if(temp_op == 's'){
+      num_1 = parser.number.remove();
+      temp_op = parser.operator.remove();
+      temp_op = parser.operator.remove();
+      Expression e = new SinExpression(new TerminalExpression(num_1));
+      parser.number.push(e.solve());
+    }
+    
+    else if(temp_op == 't'){
+      num_1 = parser.number.remove();
+      temp_op = parser.operator.remove();
+      temp_op = parser.operator.remove();
+      Expression e = new TanExpression(new TerminalExpression(num_1));
       parser.number.push(e.solve());
     }
   }
 }
 
 void mouseClicked(){
-  println("HISTORY");
-  for(int i = 0; i < history.size(); i++){
-    println(history.peek());
-  }
   for(int i = 0; i < button.size(); i++){
     if(button.get(i).onHover()){
       try{
