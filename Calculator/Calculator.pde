@@ -34,6 +34,7 @@ void setup(){
   button.add(new Equal(200, (height-50), 50, 50, 255));
   specialButton.add(new MCButton(250, height-200, 50, 50, 255));
   specialButton.add(new MRButton(200, height-200, 50, 50, 255));
+  specialButton.add(new ClearButton(300, height-200, 50, 50, 255));
 }
 
 void draw(){
@@ -130,6 +131,9 @@ void mouseClicked(){
       }
       else if(specialButton.get(i).getValue().equals("MR")){
         specialButton.get(i).function();
+      }
+      else if(specialButton.get(i).getValue().equals("Clear")){
+        screen.setShow(String.valueOf(""));
       }
     }
   }
