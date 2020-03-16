@@ -1,8 +1,10 @@
 import java.util.*;
 
 ArrayList<Button> button = new ArrayList<Button>();
+ArrayList<SpecialButton> specialButton = new ArrayList<SpecialButton>();
 Screen screen = new Screen();
 Parser parser = new Parser();
+Queue<String> history = new LinkedList<String>();
 
 void setup(){
   frameRate(60);
@@ -27,12 +29,17 @@ void setup(){
   button.add(new Operator("/", 2, 200, (height-150), 50, 50, 255));
   button.add(new Operator("^", 3, 200, (height-100), 50, 50, 255));
   button.add(new Equal(200, (height-50), 50, 50, 255));
+  specialButton.add(new MCButton(250, height-200, 50, 50, 255));
+  specialButton.add(new MRButton(200, height-200, 50, 50, 255));
 }
 
 void draw(){
   background(255);
   for(int i = 0; i < button.size(); i++){
     button.get(i).render();
+  }
+  for(int i = 0; i < specialButton.size(); i++){
+    specialButton.get(i).render();
   }
   screen.update();
 }
@@ -66,17 +73,42 @@ void calculate(){
       Expression e = new DivideExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
       parser.number.push(e.solve());
     }
+    else if(temp_op == '^'){
+      num_1 = parser.number.remove();
+      num_2 = parser.number.remove();
+      Expression e = new PowerExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
+      parser.number.push(e.solve());
+    }
   }
 }
 
 void mouseClicked(){
+  println("HISTORY");
+  for(int i = 0; i < history.size(); i++){
+    println(history.peek());
+  }
   for(int i = 0; i < button.size(); i++){
     if(button.get(i).onHover()){
-      screen.addShow(button.get(i).getValue());
-      if(button.get(i).getValue().charAt(0) == '='){
+      try{
+        button.get(i).addText();
+      }
+      catch (Exception e){
+        println(e);
+      }
+      if(button.get(i).getValue().equals("=")){
         parser.parsing(screen.getShow());
         calculate();
         screen.setShow(String.valueOf(parser.number.pollFirst()));
+      }
+    }
+  }
+  for(int i = 0; i < specialButton.size(); i++){
+    if(specialButton.get(i).onHover()){
+      if(specialButton.get(i).getValue().equals("MC")){
+        specialButton.get(i).function();
+      }
+      else if(specialButton.get(i).getValue().equals("MR")){
+        specialButton.get(i).function();
       }
     }
   }

@@ -42,7 +42,7 @@ abstract class Button{
   }
   
   // ABSTRACT METHOD
-  abstract void addText();
+  abstract void addText() throws AddTextException;
   abstract String getValue();
   abstract int getPriority() throws PriorityException;
   //abstract String getType();
