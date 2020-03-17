@@ -34,27 +34,32 @@ class Parser2 {
     else{
       num.add(parseMulDiv(temp));
     }
-    String endOP = op.remove();
-    Expression end,tempEx;
-    if(endOP=="+"){
-      Expression a = num.remove();
-      end = new AddExpression(a,num.remove());
-    }
-    else{
-      Expression a = num.remove();
-      end = new SubstractExpression(a,num.remove());
-    }
-    while(op.size()!=0){
-      endOP = op.remove();
+    if(op.size()!=0){
+      String endOP = op.remove();
+      Expression end,tempEx;
       if(endOP=="+"){
-        tempEx = new AddExpression(end,num.remove());
+        Expression a = num.remove();
+        end = new AddExpression(a,num.remove());
       }
       else{
-        tempEx = new SubstractExpression(end,num.remove());
+        Expression a = num.remove();
+        end = new SubstractExpression(a,num.remove());
       }
-      end = tempEx;
+      while(op.size()!=0){
+        endOP = op.remove();
+        if(endOP=="+"){
+          tempEx = new AddExpression(end,num.remove());
+        }
+        else{
+          tempEx = new SubstractExpression(end,num.remove());
+        }
+        end = tempEx;
+      }
+      return end;
     }
-    return end;
+    else{
+      return parseMulDiv(Masukan);
+    }
   }
   
   Expression parseMulDiv(String Masukan){
@@ -92,31 +97,37 @@ class Parser2 {
     else{
       num.add(parsePowRoot(temp));
     }
-    String endOP = op.remove();
-    Expression end,tempEx;
-    if(endOP=="*"){
-      Expression a = num.remove();
-      end = new MultiplyExpression(a,num.remove());
-    }
-    else{
-      Expression a = num.remove();
-      end = new DivideExpression(a,num.remove());
-    }
-    while(op.size()!=0){
-      endOP = op.remove();
+    if(op.size()!=0){
+      String endOP = op.remove();
+      Expression end,tempEx;
       if(endOP=="*"){
-        tempEx = new MultiplyExpression(end,num.remove());
+        Expression a = num.remove();
+        end = new MultiplyExpression(a,num.remove());
       }
       else{
-        tempEx = new DivideExpression(end,num.remove());
+        Expression a = num.remove();
+        end = new DivideExpression(a,num.remove());
       }
-      end = tempEx;
+      while(op.size()!=0){
+        endOP = op.remove();
+        if(endOP=="*"){
+          tempEx = new MultiplyExpression(end,num.remove());
+        }
+        else{
+          tempEx = new DivideExpression(end,num.remove());
+        }
+        end = tempEx;
+      }
+      return end;
     }
-    return end;
+    else{
+      return parsePowRoot(Masukan);
+    }
   }
   
   Expression parsePowRoot(String Masukan){
     String temp = "";
+    String trigono = "";
     Stack<TerminalExpression> num = new Stack(); 
     Stack<String> op = new Stack<String>();
     for(char a : Masukan.toCharArray()){
@@ -132,27 +143,56 @@ class Parser2 {
         }
         temp="";
       }
-      else{
+      else if(charNumber(a)){
         temp+=a;
+      }
+      else{
+        trigono+=a;
+        if(trigono.length()==3){
+          op.push(trigono);
+          trigono="";
+        }
       }
     }
     num.push(new TerminalExpression(Double.parseDouble(temp)));
     String endOP = op.pop();
     Expression end,tempEx;
+    
     if(endOP=="√"){
       end = new RootExpression(num.pop());
     }
-    else{
+    else if(endOP=="^"){
       TerminalExpression a = num.pop();
       end = new PowExpression(num.pop(),a);
+    }
+    else if(endOP=="cos"){
+      TerminalExpression a = num.pop();
+      end = new CosExpression(a);
+    }
+    else if(endOP=="tan"){
+      TerminalExpression a = num.pop();
+      end = new TanExpression(a);
+    }
+    else{
+      TerminalExpression a = num.pop();
+      end = new SinExpression(a);
     }
     while(!op.empty()){
       endOP = op.pop();
       if(endOP=="√"){
         tempEx = new RootExpression(end);
       }
-      else{
+      else if(endOP=="^"){
         tempEx = new PowExpression(num.pop(),end);
+      }
+      else if(endOP=="cos"){
+        tempEx = new CosExpression(end);
+      }
+      else if(endOP=="tan"){
+        tempEx = new TanExpression(end);
+      }
+      else{
+        tempEx = new SinExpression(end);
       }
       end = tempEx;
     }
@@ -169,5 +209,8 @@ class Parser2 {
       }
     }
     return ans;
-  } 
+  }
+  boolean charNumber(char temp){
+    return (temp >= 48 && temp <= 57 || temp == 46);
+  }
 }
