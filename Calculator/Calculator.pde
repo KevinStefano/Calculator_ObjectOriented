@@ -3,7 +3,7 @@ import java.util.*;
 ArrayList<Button> button = new ArrayList<Button>();
 ArrayList<SpecialButton> specialButton = new ArrayList<SpecialButton>();
 Screen screen = new Screen();
-Parser parser = new Parser();
+Parser2 parser = new Parser2();
 Queue<String> history = new LinkedList<String>();
 PImage pim;
 
@@ -52,70 +52,70 @@ void draw(){
   image(pim,0,-50,width,height/2);
 }
 
-void calculate(){
-  char temp_op;
-  double num_1, num_2;
-  while(parser.operator.size() > 0){
-    temp_op = parser.operator.remove();
-    if(temp_op == '+'){
-      num_1 = parser.number.remove();
-      num_2 = parser.number.remove();
-      Expression e = new AddExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
-      parser.number.push(e.solve());
-    }
-    else if(temp_op == '-'){
-      num_1 = parser.number.remove();
-      num_2 = parser.number.remove();
-      Expression e = new SubstractExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
-      parser.number.push(e.solve());
-    }
-    else if(temp_op == '*'){
-      num_1 = parser.number.remove();
-      num_2 = parser.number.remove();
-      Expression e = new MultiplyExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
-      parser.number.push(e.solve());
-    }
-    else if(temp_op == '/'){
-      num_1 = parser.number.remove();
-      num_2 = parser.number.remove();
-      Expression e = new DivideExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
-      parser.number.push(e.solve());
-    }
-    else if(temp_op == '^'){
-      num_1 = parser.number.remove();
-      num_2 = parser.number.remove();
-      Expression e = new PowExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
-      parser.number.push(e.solve());
-    }
-      else if(temp_op == '√'){
-      num_1 = parser.number.remove();
-      Expression e = new RootExpression(new TerminalExpression(num_1));
-      parser.number.push(e.solve());
-    }
-    else if(temp_op == 'c'){
-      num_1 = parser.number.remove();
-      temp_op = parser.operator.remove();
-      temp_op = parser.operator.remove();
-      Expression e = new CosExpression(new TerminalExpression(num_1));
-      parser.number.push(e.solve());
-    }
-    else if(temp_op == 's'){
-      num_1 = parser.number.remove();
-      temp_op = parser.operator.remove();
-      temp_op = parser.operator.remove();
-      Expression e = new SinExpression(new TerminalExpression(num_1));
-      parser.number.push(e.solve());
-    }
+//void calculate(){
+//  char temp_op;
+//  double num_1, num_2;
+//  while(parser.operator.size() > 0){
+//    temp_op = parser.operator.remove();
+//    if(temp_op == '+'){
+//      num_1 = parser.number.remove();
+//      num_2 = parser.number.remove();
+//      Expression e = new AddExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
+//      parser.number.push(e.solve());
+//    }
+//    else if(temp_op == '-'){
+//      num_1 = parser.number.remove();
+//      num_2 = parser.number.remove();
+//      Expression e = new SubstractExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
+//      parser.number.push(e.solve());
+//    }
+//    else if(temp_op == '*'){
+//      num_1 = parser.number.remove();
+//      num_2 = parser.number.remove();
+//      Expression e = new MultiplyExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
+//      parser.number.push(e.solve());
+//    }
+//    else if(temp_op == '/'){
+//      num_1 = parser.number.remove();
+//      num_2 = parser.number.remove();
+//      Expression e = new DivideExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
+//      parser.number.push(e.solve());
+//    }
+//    else if(temp_op == '^'){
+//      num_1 = parser.number.remove();
+//      num_2 = parser.number.remove();
+//      Expression e = new PowExpression(new TerminalExpression(num_1), new TerminalExpression(num_2));
+//      parser.number.push(e.solve());
+//    }
+//      else if(temp_op == '√'){
+//      num_1 = parser.number.remove();
+//      Expression e = new RootExpression(new TerminalExpression(num_1));
+//      parser.number.push(e.solve());
+//    }
+//    else if(temp_op == 'c'){
+//      num_1 = parser.number.remove();
+//      temp_op = parser.operator.remove();
+//      temp_op = parser.operator.remove();
+//      Expression e = new CosExpression(new TerminalExpression(num_1));
+//      parser.number.push(e.solve());
+//    }
+//    else if(temp_op == 's'){
+//      num_1 = parser.number.remove();
+//      temp_op = parser.operator.remove();
+//      temp_op = parser.operator.remove();
+//      Expression e = new SinExpression(new TerminalExpression(num_1));
+//      parser.number.push(e.solve());
+//    }
     
-    else if(temp_op == 't'){
-      num_1 = parser.number.remove();
-      temp_op = parser.operator.remove();
-      temp_op = parser.operator.remove();
-      Expression e = new TanExpression(new TerminalExpression(num_1));
-      parser.number.push(e.solve());
-    }
-  }
-}
+//    else if(temp_op == 't'){
+//      num_1 = parser.number.remove();
+//      temp_op = parser.operator.remove();
+//      temp_op = parser.operator.remove();
+//      Expression e = new TanExpression(new TerminalExpression(num_1));
+//      parser.number.push(e.solve());
+//    }
+//  }
+//}
 
 void mouseClicked(){
   for(int i = 0; i < button.size(); i++){
@@ -127,9 +127,9 @@ void mouseClicked(){
         println(e);
       }
       if(button.get(i).getValue().equals("=")){
-        parser.parsing(screen.getShow());
-        calculate();
-        screen.setShow(String.valueOf(parser.number.pollFirst()));
+        //parser.parsing(screen.getShow());
+        //calculate();
+        screen.setShow(String.valueOf(parser.parse(split(screen.getShow(),'=')[0]).solve()));
       }
     }
   }
