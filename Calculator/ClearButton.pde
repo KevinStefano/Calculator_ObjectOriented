@@ -3,7 +3,7 @@ class ClearButton extends SpecialButton{
     super("Clear", positionX, positionY, sizeX, sizeY, rgb);
   }
   
-    boolean isAvailable(){
+  boolean isAvailable(){
     if(screen.getShow().length()!=0){
       return false;
     }
@@ -15,6 +15,5 @@ class ClearButton extends SpecialButton{
     if(this.isAvailable()){
       println("DELETE");
     }
-  
-}
+  }
 }
