@@ -9,37 +9,41 @@ PImage pim;
 
 void setup(){
   frameRate(60);
-  size(360, 640);
+  size(351, 650);
   
   float plusHeight = 0;
   float timesWidth = 0;
   for(int i = 0; i < 9; i++){
     if(i != 0 && i % 3 == 0){
-      plusHeight += 50;
+      //plusHeight += 50;
+      plusHeight += 70;
       timesWidth = 0;
     }
-    button.add(new Number(str(i+1), timesWidth*50, (height-100) - plusHeight, 50, 50, 255));
+    button.add(new Number(str(i+1), timesWidth*70, (height-140) - plusHeight, 70, 70, 0));
     timesWidth++;
   }
-  button.add(new Number("0", 0, (height-50), 50, 50, 255));
-  button.add(new Number("00", 50, (height-50), 50, 50, 255));
-  button.add(new Number(".", 100, (height-50), 50, 50, 255));
-  button.add(new Operator("+", 1, 150, (height-50), 50, 50, 255));
-  button.add(new Operator("-", 1, 150, (height-100), 50, 50, 255));
-  button.add(new Operator("*", 1, 150, (height-150), 50, 50, 255));
-  button.add(new Operator("/", 2, 150, (height-200), 50, 50, 255));
+  button.add(new Number("0", 0, (height-70), 70, 70, 0));
+  button.add(new Number(".", 70, (height-70), 70, 70, 0));
+  button.add(new Equal(140, height-70, 70, 70, 255));
   
-  button.add(new Operator("√", 2, 200, (height-150), 50, 50, 255));
-  button.add(new Operator("^", 3, 200, (height-100), 50, 50, 255));
-  button.add(new Operator("sin", 3, 250, (height-50), 50, 50, 255));
-  button.add(new Operator("cos", 3, 250, (height-100), 50, 50, 255));
-  button.add(new Operator("tan", 3, 250, (height-150), 50, 50, 255));
-  button.add(new Equal(200, (height-50), 50, 50, 255));
-  specialButton.add(new MCButton(250, height-200, 50, 50, 255));
-  specialButton.add(new MRButton(200, height-200, 50, 50, 255));
-  specialButton.add(new UndoButton(300, (height-200), 50, 50, 255));
-  specialButton.add(new ClearButton(300, height-150, 50, 50, 255));
-  pim = loadImage("calculator-logo.jpg");
+  specialButton.add(new MCButton(0, height-350, 70, 70, #CC6600));
+  specialButton.add(new MRButton(70, height-350, 70, 70, #CC6600));
+  specialButton.add(new UndoButton(140, height-350, 70, 70, #CC6600));
+  specialButton.add(new ClearButton(210, height-350, 70, 70, #CC6600));
+  
+  
+  button.add(new Operator("+", 1, 210, (height-70), 70, 70, 255));
+  button.add(new Operator("-", 1, 210, (height-140), 70, 70, 255));
+  button.add(new Operator("*", 1, 210, (height-210), 70, 70, 255));
+  button.add(new Operator("/", 2, 210, (height-280), 70, 70, 255));
+
+  button.add(new Operator("√", 2, 280, (height-70), 70, 70, 255));
+  button.add(new Operator("^", 3, 280, (height-140), 70, 70, 255));
+  button.add(new Operator("sin", 3, 280, (height-210), 70, 70, 255));
+  button.add(new Operator("cos", 3, 280, (height-280), 70, 70, 255));
+  button.add(new Operator("tan", 3, 280, (height-350), 70, 70, 255));
+  
+  pim = loadImage("calculator-logos.jpg");
 }
 
 void draw(){
@@ -51,7 +55,7 @@ void draw(){
     specialButton.get(i).render();
   }
   screen.update();
-  image(pim,0,-50,width,height/2);
+  image(pim,0,0,width,height/3);
 }
 
 //void calculate(){

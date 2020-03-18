@@ -10,6 +10,7 @@ abstract class Button{
   
   // Color
   color rgb;
+  color background;
   
   Button(float positionX, float positionY, float sizeX, float sizeY, color rgb){
     this.positionX = positionX;
@@ -28,16 +29,21 @@ abstract class Button{
   
   void setColor(){
     if(this.onHover()){
-      this.rgb = color(100);
+      if(this.rgb == #CC6600){
+        this.background = color(0);
+      }
+      else{
+        this.background = color(#CC6600);
+      }
     }
     else{
-      this.rgb = color(255);
+      this.background = color(255);
     }
   }
   
   void render(){
     this.setColor();
-    fill(this.rgb);
+    fill(this.background);
     rect(this.positionX, this.positionY, this.sizeX, this.sizeY);
   }
   

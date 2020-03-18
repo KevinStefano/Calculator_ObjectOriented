@@ -21,7 +21,7 @@ class Show{
   void update(){
     textSize(30);
     fill(0);
-    textAlign(CENTER, CENTER);
+    textAlign(RIGHT, CENTER);
     text(this.show, width/2, height/2);
   }
 }
