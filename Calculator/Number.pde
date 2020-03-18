@@ -1,9 +1,12 @@
 class Number extends Button{
   private String number;
   
+  private color col;
+  
   Number(String number, float positionX, float positionY, float sizeX, float sizeY, color rgb){
     super(positionX, positionY, sizeX, sizeY, rgb);
     this.number = number;
+    this.col = rgb;
   }
   
   public String getValue(){
@@ -22,7 +25,7 @@ class Number extends Button{
   void render(){
     super.render();
     textSize(15);
-    fill(0);
+    fill(this.col);
     textAlign(CENTER, CENTER);
     text(number, (positionX+sizeX/2), (positionY+sizeY/2));
   }

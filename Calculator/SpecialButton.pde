@@ -2,9 +2,12 @@ abstract class SpecialButton extends Button{
   
   String val;
   
+  private color col;
+  
   SpecialButton(String val, float positionX, float positionY, float sizeX, float sizeY, color rgb){
     super(positionX, positionY, sizeX, sizeY, rgb);
     this.val = val;
+    this.col = rgb;
   }
   
   String getValue(){
@@ -22,8 +25,8 @@ abstract class SpecialButton extends Button{
   @Override
   void render(){
     super.render();
-    textSize(15);
-    fill(0);
+    textSize(16);
+    fill(this.col);
     textAlign(CENTER, CENTER);
     text(val, (positionX+sizeX/2), (positionY+sizeY/2));
   }

@@ -21,7 +21,9 @@ class Screen{
   void update(){
     textSize(30);
     fill(0);
-    textAlign(CENTER, CENTER);
-    text(this.show, width/2, height/2);
+    textAlign(RIGHT, RIGHT);
+    //margin
+    fill(204, 102, 0);
+    text(this.show, width - 10, height/2 - 60);
   }
 }
