@@ -1,6 +1,6 @@
 class ClearButton extends SpecialButton{
   ClearButton(float positionX, float positionY, float sizeX, float sizeY, color rgb){
-    super("Clear", positionX, positionY, sizeX, sizeY, rgb);
+    super("AC", positionX, positionY, sizeX, sizeY, rgb);
   }
   
     boolean isAvailable(){

@@ -24,19 +24,21 @@ void setup(){
   button.add(new Number("0", 0, (height-50), 50, 50, 255));
   button.add(new Number("00", 50, (height-50), 50, 50, 255));
   button.add(new Number(".", 100, (height-50), 50, 50, 255));
-  button.add(new Operator("+", 1, 150, (height-100), 50, 100, 255));
-  button.add(new Operator("-", 1, 150, (height-150), 50, 50, 255));
-  button.add(new Operator("*", 2, 150, (height-200), 50, 50, 255));
-  button.add(new Operator("/", 2, 200, (height-150), 50, 50, 255));
+  button.add(new Operator("+", 1, 150, (height-50), 50, 50, 255));
+  button.add(new Operator("-", 1, 150, (height-100), 50, 50, 255));
+  button.add(new Operator("*", 1, 150, (height-150), 50, 50, 255));
+  button.add(new Operator("/", 2, 150, (height-200), 50, 50, 255));
+  
+  button.add(new Operator("√", 2, 200, (height-150), 50, 50, 255));
   button.add(new Operator("^", 3, 200, (height-100), 50, 50, 255));
   button.add(new Operator("sin", 3, 250, (height-50), 50, 50, 255));
   button.add(new Operator("cos", 3, 250, (height-100), 50, 50, 255));
   button.add(new Operator("tan", 3, 250, (height-150), 50, 50, 255));
-   button.add(new Operator("√", 3, 300, (height-150), 50, 50, 255));
   button.add(new Equal(200, (height-50), 50, 50, 255));
   specialButton.add(new MCButton(250, height-200, 50, 50, 255));
   specialButton.add(new MRButton(200, height-200, 50, 50, 255));
-  specialButton.add(new ClearButton(300, height-200, 50, 50, 255));
+  specialButton.add(new UndoButton(300, (height-200), 50, 50, 255));
+  specialButton.add(new ClearButton(300, height-150, 50, 50, 255));
   pim = loadImage("calculator-logo.jpg");
 }
 
@@ -141,8 +143,16 @@ void mouseClicked(){
       else if(specialButton.get(i).getValue().equals("MR")){
         specialButton.get(i).function();
       }
-      else if(specialButton.get(i).getValue().equals("Clear")){
+      else if(specialButton.get(i).getValue().equals("AC")){
         screen.setShow(String.valueOf(""));
+      }
+      else if(specialButton.get(i).getValue().equals("<-")){
+        String temp = screen.getShow();
+        String show = "";
+        if(temp.length() > 0){
+          show = temp.substring(0, temp.length() - 1);
+        }
+        screen.setShow(String.valueOf(show));
       }
     }
   }
