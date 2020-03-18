@@ -145,17 +145,16 @@ class Parser2 {
       }
       else if(charNumber(a)){
         temp+=a;
+        op.push(trigono);
+        trigono="";
       }
       else{
         trigono+=a;
-        if(trigono.length()==3){
-          op.push(trigono);
-          trigono="";
-        }
       }
     }
     num.push(new TerminalExpression(Double.parseDouble(temp)));
     String endOP = op.pop();
+    println(endOP);
     Expression end,tempEx;
     
     if(endOP=="√"){
@@ -165,11 +164,11 @@ class Parser2 {
       TerminalExpression a = num.pop();
       end = new PowExpression(num.pop(),a);
     }
-    else if(endOP=="cos"){
+    else if(endOP.equals("cos")){
       TerminalExpression a = num.pop();
       end = new CosExpression(a);
     }
-    else if(endOP=="tan"){
+    else if(endOP.equals("tan")){
       TerminalExpression a = num.pop();
       end = new TanExpression(a);
     }
@@ -185,7 +184,7 @@ class Parser2 {
       else if(endOP=="^"){
         tempEx = new PowExpression(num.pop(),end);
       }
-      else if(endOP=="cos"){
+      else if(endOP.equals("cos")){
         tempEx = new CosExpression(end);
       }
       else if(endOP=="tan"){
