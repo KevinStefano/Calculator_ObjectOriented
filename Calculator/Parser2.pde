@@ -1,10 +1,14 @@
 class Parser2 {  
+  
   Expression parse(String Masukan){
+    
     String temp = "";
     Queue<Expression> num = new LinkedList<Expression>(); 
     Queue<String> op = new LinkedList<String>();
+    
     for(char a : Masukan.toCharArray()){
       if(a=='+'){
+        
         op.add("+");
         if(isNumber(temp)){
           num.add(new TerminalExpression(Double.parseDouble(temp)));
@@ -63,9 +67,11 @@ class Parser2 {
   }
   
   Expression parseMulDiv(String Masukan){
+    
     String temp = "";
     Queue<Expression> num = new LinkedList<Expression>(); 
     Queue<String> op = new LinkedList<String>();
+    
     for(char a : Masukan.toCharArray()){
       if(a=='*'){
         op.add("*");
@@ -91,15 +97,19 @@ class Parser2 {
         temp+=a;
       }
     }
+    
     if(isNumber(temp)){
       num.add(new TerminalExpression(Double.parseDouble(temp)));
     }
     else{
       num.add(parsePowRoot(temp));
     }
+    
     if(op.size()!=0){
+      
       String endOP = op.remove();
       Expression end,tempEx;
+      
       if(endOP=="*"){
         Expression a = num.remove();
         end = new MultiplyExpression(a,num.remove());
@@ -108,6 +118,7 @@ class Parser2 {
         Expression a = num.remove();
         end = new DivideExpression(a,num.remove());
       }
+      
       while(op.size()!=0){
         endOP = op.remove();
         if(endOP=="*"){

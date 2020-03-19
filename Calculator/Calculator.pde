@@ -37,7 +37,7 @@ void setup(){
   specialButton.add(new MCButton(250, height-200, 50, 50, 255));
   specialButton.add(new MRButton(200, height-200, 50, 50, 255));
   specialButton.add(new ClearButton(300, height-200, 50, 50, 255));
-  pim = loadImage("calculator-logo.jpg");
+  //pim = loadImage("calculator-logo.jpg");
 }
 
 void draw(){
