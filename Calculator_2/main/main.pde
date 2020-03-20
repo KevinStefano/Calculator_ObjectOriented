@@ -18,7 +18,6 @@ Calculate calculate = new Calculate();
 Checker check = new Checker();
 PImage pim;
 
-
 void setup(){
   size(351, 650);
   surface.setTitle("GUI Calculator with OOP");
