@@ -96,7 +96,11 @@ void mouseClicked(){
         specialButton.get(i).function(screen, history);
       }
       else if(specialButton.get(i).getValue().equals("AC")){
+        for (int m =0; m<history.size();m++) {
+          history.remove();
+        }
         screen.setShow("");
+        
       }
       else if(specialButton.get(i).getValue().equals("<-")){
         String temp = screen.getShow();
