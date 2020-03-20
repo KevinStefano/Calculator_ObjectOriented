@@ -66,6 +66,7 @@ void draw(){
   }
   screen.update();
   image(pim,0,0,width,height/3);
+  cursor(HAND);
 }
 
 void mouseClicked(){
