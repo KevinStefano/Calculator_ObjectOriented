@@ -6,13 +6,13 @@ import button.specialButton.UndoButton;
 import button.specialButton.ClearButton;
 import expression.*;
 import screen.Screen;
-import parser.Parser;
+import calculate.Calculate;
 
 ArrayList<Button> button = new ArrayList<Button>();
 ArrayList<SpecialButton> specialButton = new ArrayList<SpecialButton>();
 Screen screen = new Screen(this);
 Queue<String> history = new LinkedList<String>();
-Parser parser = new Parser();
+Calculate calculate = new Calculate();
 PImage pim;
 
 
@@ -75,9 +75,7 @@ void mouseClicked(){
         println(e);
       }
       if(button.get(i).getValue().equals("=")){
-        //parser.parsing(screen.getShow());
-        //calculate();
-        screen.setShow(String.valueOf(parser.parse(split(screen.getShow(),'=')[0]).solve()));
+        screen.setShow(calculate.calculate(screen.getShow()));
       }
     }
   }
