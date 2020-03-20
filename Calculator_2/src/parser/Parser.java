@@ -33,8 +33,8 @@ public class Parser {
 					this.operation.add(temp_num);
 				}
 				this.operation.add(String.valueOf(input.charAt(i)));
-				temp_num = "";
-				temp_str = "";
+				temp_num += "";
+				temp_str += "";
 			}
 		}
 		if(!temp_str.equals("")) {
