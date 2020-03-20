@@ -111,7 +111,11 @@ void mouseClicked(){
         screen.setShow(show);
       }
       else if(specialButton.get(i).getValue().equals("AC")){
+        for (int m =0; m<history.size();m++) {
+          history.remove();
+        }
         screen.setShow("");
+        
       }
       else if(specialButton.get(i).getValue().equals("<-")){
         String temp = screen.getShow();
