@@ -176,7 +176,7 @@ public class Checker {
       }
       if(before == 'T' && ( after == 'O' ) ){
         return false;
-      }      
+      }
       if(before == '-' && ( after == 'O' ) ){
         return false;
       }
