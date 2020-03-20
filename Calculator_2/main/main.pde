@@ -18,9 +18,10 @@ Calculate calculate = new Calculate();
 Checker check = new Checker();
 PImage pim;
 
-
 void setup(){
   size(351, 650);
+  surface.setTitle("GUI Calculator with OOP");
+  surface.setLocation(400, 100);
   float plusHeight = 0;
   float timesWidth = 0;
   for(int i = 0; i < 9; i++){
