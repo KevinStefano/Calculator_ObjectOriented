@@ -9,7 +9,7 @@ Simple GUI-ed calculator with Object oriented Programming
 
 ## Description
 Aplikasi kalkulator sederhana berbasis orientasi objek yang mampu melakukan beberapa task sederhana.\
-Yang pertama adalah menampilkan angka, titik (**.**)sebagai decimal separator, dan operator matematika ke layar.\
+Yang pertama adalah menampilkan angka, titik (**.**) sebagai decimal separator, dan operator matematika ke layar.\
 Operator matematika dalam hal ini berupa  penjumlahan (**+**), pengurangan (**-**), perkalian (**x**), pembagian (**:**), akar (**√**), trigonometri (**sin, cos, tan**), pemangkatan (**^**).
 
 Fitur pada program kami:\
