@@ -4,12 +4,12 @@ import expression.*;
 
 public class TanExpression extends UnaryExpression{
 	
-	public TanExpression(Expression x){
+	public TanExpression(Expression<Double> x){
 		super(x);
 	}
 	
 	@Override
-	public double solve() {
+	public Double solve() {
 		return Math.tan(Math.toRadians(this.x.solve()));
 	}
 }

@@ -4,12 +4,12 @@ import expression.*;
 
 public class NegativeExpression extends UnaryExpression{
 	
-	public NegativeExpression(Expression x){
+	public NegativeExpression(Expression<Double> x){
 		super(x);
 	}
 	
 	@Override
-	public double solve() {
+	public Double solve() {
 		return -(this.x.solve());
 	}
 }

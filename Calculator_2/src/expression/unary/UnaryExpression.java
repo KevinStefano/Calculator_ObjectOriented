@@ -2,14 +2,14 @@ package expression.unary;
 
 import expression.*;
 
-abstract public class UnaryExpression extends Expression{
+abstract public class UnaryExpression extends Expression<Double>{
 	
-	protected Expression x;
+	protected Expression<Double> x;
 	
-	public UnaryExpression(Expression x) {
+	public UnaryExpression(Expression<Double> x) {
 		super();
 		this.x = x;
 	}
 	
-	abstract public double solve();
+	abstract public Double solve();
 }

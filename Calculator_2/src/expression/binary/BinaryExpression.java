@@ -2,16 +2,16 @@ package expression.binary;
 
 import expression.*;
 
-abstract public class BinaryExpression extends Expression{
+abstract public class BinaryExpression extends Expression<Double>{
 	
-	protected Expression x;
-	protected Expression y;
+	protected Expression<Double> x;
+	protected Expression<Double> y;
 	
-	public BinaryExpression(Expression x, Expression y) {
+	public BinaryExpression(Expression<Double> x, Expression<Double> y) {
 		super();
 		this.x = x;
 		this.y = y;
 	}
 	
-	abstract public double solve();
+	abstract public Double solve();
 }

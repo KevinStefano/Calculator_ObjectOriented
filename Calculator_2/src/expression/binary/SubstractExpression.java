@@ -4,12 +4,12 @@ import expression.*;
 
 public class SubstractExpression extends BinaryExpression{
 
-	public SubstractExpression(Expression x, Expression y){
+	public SubstractExpression(Expression<Double> x, Expression<Double> y){
 		super(x, y);
 	}
 	
 	@Override
-	public double solve() {
+	public Double solve() {
 		return this.x.solve() - this.y.solve();
 	}
 	

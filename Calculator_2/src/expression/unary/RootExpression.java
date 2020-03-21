@@ -4,12 +4,12 @@ import expression.*;
 
 public class RootExpression extends UnaryExpression{
 	
-	public RootExpression(Expression x){
+	public RootExpression(Expression<Double> x){
 		super(x);
 	}
 	
 	@Override
-	public double solve() {
+	public Double solve() {
 		return Math.sqrt(this.x.solve());
 	}
 }

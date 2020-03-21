@@ -4,12 +4,12 @@ import expression.*;
 
 public class PowerExpression extends BinaryExpression{
 
-	public PowerExpression(Expression x, Expression y){
+	public PowerExpression(Expression<Double> x, Expression<Double> y){
 		super(x, y);
 	}
 	
 	@Override
-	public double solve() {
+	public Double solve() {
 		return Math.pow(this.x.solve(), this.y.solve());
 	}
 	

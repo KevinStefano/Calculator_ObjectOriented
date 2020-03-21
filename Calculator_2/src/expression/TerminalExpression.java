@@ -1,16 +1,16 @@
 package expression;
 
-public class TerminalExpression extends Expression{
+public class TerminalExpression extends Expression<Double>{
 	
-	private double x;
+	private Double x;
 	
-	public TerminalExpression(double x) {
+	public TerminalExpression(Double x) {
 		super();
 		this.x = x;
 	}
 	
 	@Override
-	public double solve() {
+	public Double solve() {
 		return this.x;
 	}
 }

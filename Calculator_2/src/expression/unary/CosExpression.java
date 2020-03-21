@@ -4,12 +4,12 @@ import expression.*;
 
 public class CosExpression extends UnaryExpression{
 	
-	public CosExpression(Expression x){
+	public CosExpression(Expression<Double> x){
 		super(x);
 	}
 	
 	@Override
-	public double solve() {
+	public Double solve() {
 		return Math.cos(Math.toRadians(this.x.solve()));
 	}
 }

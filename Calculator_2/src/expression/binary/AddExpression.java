@@ -4,12 +4,12 @@ import expression.*;
 
 public class AddExpression extends BinaryExpression{
 
-	public AddExpression(Expression x, Expression y){
+	public AddExpression(Expression<Double> x, Expression<Double> y){
 		super(x, y);
 	}
 	
 	@Override
-	public double solve() {
+	public Double solve() {
 		return this.x.solve() + this.y.solve();
 	}
 	

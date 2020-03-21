@@ -1,6 +1,6 @@
 package expression;
 
-abstract public class Expression {
+abstract public class Expression <T> {
 	protected Expression(){}
-	abstract public double solve();
+	abstract public T solve();
 }
