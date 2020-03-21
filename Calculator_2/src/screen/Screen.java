@@ -15,9 +15,25 @@ public class Screen {
 	public void setShow(String c) {
 		this.show = c;
 	}
+
+	public void setShow(char c) {
+		this.show = Character.toString(c);
+	}
+
+	public void setShow(int c) {
+		this.show = Integer.toString(c); 
+	}
 	
 	public void addShow(String c) {
 		this.show += c;
+	}
+
+	public void addShow(char c) {
+		this.show += Character.toString(c);
+	}
+
+	public void addShow(int c) {
+		this.show += Integer.toString(c);
 	}
 	
 	public String getShow() {
