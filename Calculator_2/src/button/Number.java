@@ -19,9 +19,6 @@ public class Number extends Button{
 	}
 	
 	@Override
-	public int getPriority() {return 0;}
-	
-	@Override
 	public void addText(Screen screen) {
 		screen.addShow(this.number);
 	}

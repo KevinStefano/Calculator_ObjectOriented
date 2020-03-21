@@ -44,16 +44,16 @@ void setup(){
   specialButton.add(new ClearButton(this, 210, height-350, 70, 70, 204, 102, 0));  
   specialButton.add(new AnsButton(this, 280, height-350, 70, 70, 204, 102, 0));
 
-  button.add(new Operator(this, "+", 1, 210, (height-70), 70, 70, 255, 255, 255));
-  button.add(new Operator(this, "-", 1, 210, (height-140), 70, 70, 255, 255, 255));
-  button.add(new Operator(this, "*", 1, 210, (height-210), 70, 70, 255, 255, 255));
-  button.add(new Operator(this, "/", 2, 210, (height-280), 70, 70, 255, 255, 255));
+  button.add(new Operator(this, "+", 210, (height-70), 70, 70, 255, 255, 255));
+  button.add(new Operator(this, "-", 210, (height-140), 70, 70, 255, 255, 255));
+  button.add(new Operator(this, "*", 210, (height-210), 70, 70, 255, 255, 255));
+  button.add(new Operator(this, "/", 210, (height-280), 70, 70, 255, 255, 255));
 
-  button.add(new Operator(this, "√", 2, 280, (height-56), 70, 56, 255, 255, 255));
-  button.add(new Operator(this, "^", 3, 280, (height-2*56), 70, 56, 255, 255, 255));
-  button.add(new Operator(this, "sin", 3, 280, (height-3*56), 70, 56, 255, 255, 255));
-  button.add(new Operator(this, "cos", 3, 280, (height-4*56), 70, 56, 255, 255, 255));
-  button.add(new Operator(this, "tan", 3, 280, (height-5*56), 70, 56, 255, 255, 255));
+  button.add(new Operator(this, "√", 280, (height-56), 70, 56, 255, 255, 255));
+  button.add(new Operator(this, "^", 280, (height-2*56), 70, 56, 255, 255, 255));
+  button.add(new Operator(this, "sin", 280, (height-3*56), 70, 56, 255, 255, 255));
+  button.add(new Operator(this, "cos", 280, (height-4*56), 70, 56, 255, 255, 255));
+  button.add(new Operator(this, "tan", 280, (height-5*56), 70, 56, 255, 255, 255));
 
   pim = loadImage("calculator-logos.jpg");
 }

@@ -61,5 +61,4 @@ abstract public class Button {
 	
 	abstract public void addText(Screen screen);
 	abstract public String getValue();
-	abstract public int getPriority();
 }

@@ -23,9 +23,6 @@ abstract public class SpecialButton extends Button{
 	public void addText(Screen screen) {}
 	
 	@Override
-	public int getPriority() {return 0;}
-	
-	@Override
 	public void render() {
 		super.render();
 		papplet.textSize(16);

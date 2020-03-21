@@ -5,24 +5,17 @@ import processing.core.PConstants;
 import screen.Screen;
 
 public class Operator extends Button{
-	private int priority;
 	private String operator;
 	private int r, g, b;
 	
-	public Operator(PApplet papplet, String operator, int priority, float positionX, float positionY, float sizeX, float sizeY, int r, int g, int b) {
+	public Operator(PApplet papplet, String operator, float positionX, float positionY, float sizeX, float sizeY, int r, int g, int b) {
 		super(papplet, positionX, positionY, sizeX, sizeY, r, g, b);
-		this.priority = priority;
 		this.operator = operator;
 	}
 	
 	@Override
 	public String getValue() {
 		return this.operator;
-	}
-	
-	@Override
-	public int getPriority() {
-		return this.priority;
 	}
 	
 	@Override
