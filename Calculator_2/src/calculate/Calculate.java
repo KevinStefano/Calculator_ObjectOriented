@@ -1,7 +1,8 @@
 package calculate;
 
 import java.util.ArrayList;
-import parser.*;
+import parser.Parser;
+import solver.*;
 
 public class Calculate {
 	
@@ -17,27 +18,17 @@ public class Calculate {
 		
 		input = (ArrayList<String>) parser.getOperation().clone();
 		
-		for(int i = 0; i < input.size(); i++) {
-			System.out.print(input.get(i));
-		}
-		System.out.println();
-		SinParser sinparse = new SinParser();
-		CosParser cosparse = new CosParser();
-		TanParser tanparse = new TanParser();
-		RootParser rootparse = new RootParser();
-		NegativeParser negparse = new NegativeParser();
-		MultDivParser mdparse = new MultDivParser();
-		AddSubParser asparse = new AddSubParser();
-		PowParser pparse = new PowParser();
+		ArrayList<Solver> solver = new ArrayList<Solver>();
+		solver.add(new RootParser());
+		solver.add(new NegativeParser());
+		solver.add(new TrigonoParser());
+		solver.add(new PowParser());
+		solver.add(new MultDivParser());
+		solver.add(new AddSubParser());
 		
-		rootparse.parseRoot(input);
-		negparse.parseNegative(input);
-		sinparse.parseSin(input);
-		cosparse.parseCos(input);
-		tanparse.parseTan(input);
-		pparse.parsePow(input);
-		mdparse.parseMultDiv(input);
-		asparse.parseAddSub(input);
+		for(int i = 0; i < solver.size(); i++) {
+			solver.get(i).solve(input);
+		}
 		
 		for(int i = 0; i < input.size(); i++) {
 			if(input.get(i).equals("")) {

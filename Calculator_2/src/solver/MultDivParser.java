@@ -1,15 +1,15 @@
-package parser;
+package solver;
 
 import java.util.*;
 import expression.TerminalExpression;
 import expression.binary.MultiplyExpression;
 import expression.binary.DivideExpression;
 
-public class MultDivParser {
+public class MultDivParser extends Solver{
 	
 	public MultDivParser() {}
 	
-	public void parseMultDiv(ArrayList<String> input) {
+	public void solve(ArrayList<String> input) {
 		
 		double num_before = 0;
 		double num_after = 0;
@@ -47,16 +47,6 @@ public class MultDivParser {
 				}
 				input.set(i, "");
 			}
-		}
-		
+		}	
 	}
-	
-	private boolean isNumber(char check) {
-		int temp = (int) check;
-		if(temp >= 48 && temp <= 57 || temp == 46) {
-			return true;
-		}
-		return false;
-	}
-	
 }

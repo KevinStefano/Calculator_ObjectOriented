@@ -1,22 +1,24 @@
-package parser;
+package solver;
 
 import java.util.*;
 import expression.TerminalExpression;
-import expression.binary.PowerExpression;
+import expression.binary.AddExpression;
+import expression.binary.SubstractExpression;
 
-public class PowParser {
+public class AddSubParser extends Solver{
 
-	public PowParser() {}
+	public AddSubParser() {}
 	
-	public void parsePow(ArrayList<String> input) {
+	public void solve(ArrayList<String> input) {
 		
 		double num_before = 0;
 		double num_after = 0;
 		
-		PowerExpression pow;
+		AddExpression add;
+		SubstractExpression sub;
 		
 		for(int i = 0; i < input.size(); i++) {
-			if(input.get(i).equals("^")) {
+			if(input.get(i).equals("+") || input.get(i).equals("-")) {
 				for(int j = i+1; j < input.size(); j++) {
 					if(input.get(j).length() > 0) {
 						if(this.isNumber(input.get(j).charAt(input.get(j).length()-1))) {
@@ -30,8 +32,14 @@ public class PowParser {
 					if(input.get(j).length() > 0) {
 						if(this.isNumber(input.get(j).charAt(input.get(j).length()-1))) {
 							num_before = Double.parseDouble(input.get(j));
-							pow = new PowerExpression(new TerminalExpression(num_before), new TerminalExpression(num_after));
-							num_before = pow.solve();
+							if(input.get(i).equals("+")) {
+								add = new AddExpression(new TerminalExpression(num_before), new TerminalExpression(num_after));
+								num_before = add.solve();
+							}
+							else {
+								sub = new SubstractExpression(new TerminalExpression(num_before), new TerminalExpression(num_after));
+								num_before = sub.solve();
+							}
 							input.set(j, String.valueOf(num_before));
 							break;
 						}
@@ -39,15 +47,6 @@ public class PowParser {
 				}
 				input.set(i, "");
 			}
-		}
-		
-	}
-	
-	private boolean isNumber(char check) {
-		int temp = (int) check;
-		if(temp >= 48 && temp <= 57 || temp == 46) {
-			return true;
-		}
-		return false;
+		}	
 	}
 }

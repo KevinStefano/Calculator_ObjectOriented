@@ -1,14 +1,14 @@
-package parser;
+package solver;
 
 import java.util.*;
 import expression.TerminalExpression;
 import expression.unary.*;
 
-public class RootParser {
+public class RootParser extends Solver{
 
 	public RootParser() {}
 	
-	public void parseRoot(ArrayList<String> input) {
+	public void solve(ArrayList<String> input) {
 		
 		double num_after;
 		RootExpression root;
@@ -30,13 +30,5 @@ public class RootParser {
 			}
 		}
 		
-	}
-	
-	private boolean isNumber(char check) {
-		int temp = (int) check;
-		if(temp >= 48 && temp <= 57 || temp == 46) {
-			return true;
-		}
-		return false;
 	}
 }

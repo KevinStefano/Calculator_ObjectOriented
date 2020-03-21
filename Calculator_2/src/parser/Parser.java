@@ -15,6 +15,7 @@ public class Parser {
 	}
 	
 	public void parsing(String input) {
+		int counter = 0;
 		String temp_num = "";
 		String temp_str = "";
 		
@@ -24,6 +25,12 @@ public class Parser {
 			}
 			else if(isAlphabet(input.charAt(i))) {
 				temp_str += input.charAt(i);
+				counter++;
+				if(counter == 3) {
+					this.operation.add(temp_str);
+					temp_str = "";
+					counter = 0;
+				}
 			}
 			else {
 				if(!temp_str.equals("")) {

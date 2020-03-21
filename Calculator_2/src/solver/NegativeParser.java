@@ -1,14 +1,14 @@
-package parser;
+package solver;
 
 import java.util.*;
 import expression.TerminalExpression;
 import expression.unary.*;
 
-public class NegativeParser {
+public class NegativeParser extends Solver{
 	
 	public NegativeParser() {}
 	
-	public void parseNegative(ArrayList<String> input) {
+	public void solve(ArrayList<String> input) {
 		
 		double num_after;
 		NegativeExpression neg;
@@ -61,23 +61,5 @@ public class NegativeParser {
 				}
 			}
 		}
-	}
-	
-	private boolean isNumber(char check) {
-		int temp = (int) check;
-		if(temp >= 48 && temp <= 57 || temp == 46) {
-			return true;
-		}
-		return false;
-	}
-	
-	private boolean isOperand(String check) {
-		if(check.length() > 0) {
-			if(!isNumber(check.charAt(0))) {
-				return true;
-			}
-			return false;
-		}
-		return false;
 	}
 }

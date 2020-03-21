@@ -12,7 +12,7 @@ public class AnsButton extends SpecialButton{
 
 	@Override
 	public boolean isAvailable(Screen screen, Queue<String> history) {
-		if(history.size() == 0) {
+		if(screen.getShow().length() != 0) {
 			return false;
 		}
 		return true;
@@ -21,8 +21,7 @@ public class AnsButton extends SpecialButton{
 	@Override
 	public void function(Screen screen, Queue<String> history) {
 		if(this.isAvailable(new Screen(this.papplet), history)) {
-			screen.addShow(history.remove());
+			// CODE
 		}
 	}
-	
 }

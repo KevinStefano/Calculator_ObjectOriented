@@ -1,5 +1,6 @@
 package checker;
 import java.util.*;
+import exception.*;
 
 public class Checker {
 	
@@ -45,7 +46,7 @@ public class Checker {
 	    return trend;
 	}
 	
-	public boolean check(String in){
+	public boolean check(String in) throws Exception{
 	    ArrayList<Character> pattern = new ArrayList<Character>();
 
 	    char oldTrend = '\0', newTrend = '\0';
@@ -63,23 +64,26 @@ public class Checker {
 	    	char before = pattern.get(i - 1);
 	    	char after = pattern.get(i);
 	    	if(before == 'O' && ( after == 'O' ) ){
-	    		return false;
+	    		throw new OperatorOperatorException();
 	    	}
 	    	if(before == 'N' && ( after == 'R' || after == 'T' ) ){
-	    		return false;
+	    		throw new NumberRootException();
 	    	}
 	    	if(before == 'R' && ( after == '-' || after == 'T' ) ){
-	    		return false;
+	    		throw new RootMinusException();
 	    	}
 	    	if(before == 'T' && ( after == 'O' ) ){
-	    		return false;
+	    		throw new TrigonoOperatorException();
 	    	}
 	    	if(before == '-' && ( after == 'O' ) ){
-	    		return false;
+	    		throw new OperatorOperatorException();
 	    	}
 	    }
 	    char last = pattern.get(pattern.size() - 1);
-	    return last == 'N';
+	    if(last != 'N') {
+	    	throw new EndOperatorException();
+	    }
+	    return true;
 	 }
 }
 

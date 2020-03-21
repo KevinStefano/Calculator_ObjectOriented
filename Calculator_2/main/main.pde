@@ -1,9 +1,6 @@
 import java.util.*;
 import button.Number;
-// Tolong buang ini
-import button.specialButton.SpecialButton;
-// Tolong uncomment ini
-// import button.specialButton.AnsButton;
+import button.specialButton.AnsButton;
 import button.specialButton.MCButton;
 import button.specialButton.MRButton;
 import button.specialButton.UndoButton;
@@ -84,12 +81,13 @@ void mouseClicked(){
         println(e);
       }
       if(button.get(i).getValue().equals("=")){
-        if(check.check(screen.getShow())){
+        try{
+          check.check(screen.getShow());
           String answer = calculate.calculate(screen.getShow());
           screen.setShow(answer);
           ans = Float.parseFloat(answer);
         }
-        else {
+        catch(Exception e){
           screen.setShow("Error");
         }
       }
@@ -127,28 +125,4 @@ void mouseClicked(){
       }
     }
   }
-}
-
-
-//Tolong pindahin ini ke src/button/specialButton/AnsButton
-// AnsButton
-public class AnsButton extends SpecialButton{
-	public AnsButton(PApplet papplet, float positionX, float positionY, float sizeX, float sizeY, int r, int g, int b) {
-		super(papplet, "Ans", positionX, positionY, sizeX, sizeY, r, g, b);
-	}
-
-  @Override
-	public boolean isAvailable(Screen screen, Queue<String> history) {
-		if(screen.getShow().length() != 0) {
-			return false;
-		}
-		return true;
-	}
-	
-	@Override
-	public void function(Screen screen, Queue<String> history) {
-		if(this.isAvailable(screen, history)) {
-			// CODE
-		}
-	}
 }
