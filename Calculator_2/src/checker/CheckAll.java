@@ -8,6 +8,7 @@ public class CheckAll {
 	
 	public void check(String input) throws Exception{
 		ArrayList<Checker> check = new ArrayList<Checker>();
+		check.add(new AnsAnsChecker());
 		check.add(new DoubleDotChecker());
 		check.add(new MinusMinusChecker());
 		check.add(new NumberRootChecker());

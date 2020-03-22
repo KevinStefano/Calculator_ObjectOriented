@@ -2,7 +2,7 @@ package checker;
 
 import exception.AnsAnsException;
 
-public class AnsAnsChecker {
+public class AnsAnsChecker extends Checker{
 
 	public AnsAnsChecker() {}
 	
