@@ -10,7 +10,7 @@ public class RootOperatorChecker extends Checker{
 		for(int i = 0; i < input.length() - 1; i++) {
 			if(isRoot(input.charAt(i))) {
 				if(isOperand(input.charAt(i+1))) {
-					throw new OperatorOperatorException();
+					throw new RootOperatorException();
 				}
 			}
 		}
