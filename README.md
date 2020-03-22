@@ -119,11 +119,15 @@ Calculator
     </details>
     <details>
       <summary>parser</summary>
-      <li>Parser.java</li>
+      <ul>
+        <li>Parser.java</li>
+      </ul>
     </details>
     <details>
       <summary>screen</summary>
-      <li>Screen.java</li>
+      <ul>
+        <li>Screen.java</li>
+      </ul>
     </details>
     <details>
       <summary>solver</summary>
@@ -140,3 +144,15 @@ Calculator
     </details>
   </ul>
 </details>
+<details>
+  <summary>bin</summary>
+</details>
+<details>
+  <summary>test</summary>
+  <ul>
+    <li><b>expression</b></li>
+    <li><b>parser</b></li>
+    <li><b>solver</b></li>
+  </ul>  
+</details>
+
