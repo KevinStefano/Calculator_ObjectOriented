@@ -28,7 +28,8 @@ Selain tombol angkat dan operator, program kami juga menyediakan tombol **Ans**,
 - Pilih tombol run, program akan langsung berjalan
 
 ## Code Structure
-Calculator
+<b>Calculator</b>
+```
 <details>
   <summary>main</summary>
   <ul>
@@ -146,6 +147,9 @@ Calculator
 </details>
 <details>
   <summary>bin</summary>
+  <ul>
+    <li><i>The class compilation result from src</i></li>
+  </ul>
 </details>
 <details>
   <summary>test</summary>
@@ -155,4 +159,4 @@ Calculator
     <li><b>solver</b></li>
   </ul>  
 </details>
-
+```
