@@ -29,7 +29,6 @@ Selain tombol angkat dan operator, program kami juga menyediakan tombol **Ans**,
 
 ## Code Structure
 <b>Calculator</b>
-```
 <details>
   <summary>main</summary>
   <ul>
@@ -159,4 +158,4 @@ Selain tombol angkat dan operator, program kami juga menyediakan tombol **Ans**,
     <li><b>solver</b></li>
   </ul>  
 </details>
-```
+
