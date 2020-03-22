@@ -1,5 +1,5 @@
 # CALCULATOR OOP
-Simple GUI-ed calculator with Object oriented Programming
+Simple GUI-ed calculator built with Processing using Object oriented Programming paradigm.
 
 ## Contributors
 - 13518011	/ Muhammad Rahadian Alamsyah Putra Winarno
