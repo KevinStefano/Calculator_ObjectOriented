@@ -10,6 +10,10 @@ import screen.Screen;
 import checker.Checker;
 import calculate.Calculate;
 
+/**
+ * Class Main untuk menjalankan program
+ */
+
 
 ArrayList<Button> button = new ArrayList<Button>();
 ArrayList<SpecialButton> specialButton = new ArrayList<SpecialButton>();
@@ -20,6 +24,10 @@ Calculate calculate = new Calculate();
 CheckAll check = new CheckAll();
 PImage pim;
 
+/**
+ * Setup awal aplikasi
+ * (Peletakan Button, size layar, dll)
+ */
 void setup(){
   size(351, 650);
   surface.setTitle("GUI Calculator with OOP");
@@ -58,6 +66,9 @@ void setup(){
   pim = loadImage("calculator-logos.jpg");
 }
 
+/**
+ * Loop Program selama berjalan
+ */ 
 void draw(){
   background(255);
   for(int i = 0; i < button.size(); i++){
@@ -71,6 +82,9 @@ void draw(){
   cursor(HAND);
 }
 
+/**
+ * Mouse Click handler
+ */ 
 void mouseClicked(){
   for(int i = 0; i < button.size(); i++){
     if(button.get(i).onHover()){
