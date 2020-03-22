@@ -6,18 +6,19 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-public class PowSolverTest {
+public class TrigonoSolverTest {
 
 	@Test
-	public void test() {
+	public void testSolve() {
 		ArrayList<String> test = new ArrayList<String>();
 		ArrayList<String> ans = new ArrayList<String>();
-		PowSolver solver = new PowSolver();
+		TrigonoSolver solver = new TrigonoSolver();
 		
-		test.add("2"); test.add("^"); test.add("-1"); test.add("+"); test.add("9");
-		ans.add("0.5"); ans.add(""); ans.add(""); ans.add("+"); ans.add("9");
+		test.add("-"); test.add("4"); test.add("+"); test.add("sin"); test.add("90");
+		ans.add("-"); ans.add("4"); ans.add("+"); ans.add(""); ans.add("1.0");
 		
 		solver.solve(test);
 		assertArrayEquals(test.toArray(), ans.toArray());
 	}
+
 }

@@ -2,3 +2,5 @@ eclipse.preferences.version=1
 encoding//src/calculate/Calculate.java=UTF-8
 encoding//src/checker/Checker.java=UTF-8
 encoding//src/solver/RootSolver.java=UTF-8
+encoding//test/solver/RootSolverTest.java=UTF-8
+encoding//test/solver/TrigonoSolverTest.java=UTF-8
