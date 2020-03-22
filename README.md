@@ -19,11 +19,10 @@ Tidak lupa kami juga menampilkan pesan kesalahan untuk kesalahan sintaks dan pen
 Selain tombol angkat dan operator, program kami juga menyediakan tombol **Ans**, **MC**, **MR**, **AC** (Clear), dan **<-** (Undo)  sesuai dengan spesifikasi selayaknya.
 
 ## Prerequisite
-```
-
-```
+- Processing 3.5.3
 
 ## How to run
-```
-
-```
+- Buka main.pde (pastikan processing sudah terinstall)
+- Drag libray.jar files dari folder bin ke dalam main.pde
+- Secara otomatis, processing akan membuatkan folder code, di mana itu adalah library yang diimport ke dalam processing
+- Pilih tombol run, program akan langsung berjalan
