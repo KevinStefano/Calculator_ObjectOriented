@@ -146,9 +146,7 @@ Selain tombol angkat dan operator, program kami juga menyediakan tombol **Ans**,
 </details>
 <details>
   <summary>bin</summary>
-  <ul>
-    <li><i>The class compilation result from src</i></li>
-  </ul>
+  <ul><i>The class compilation result from src</i></ul>
 </details>
 <details>
   <summary>test</summary>
