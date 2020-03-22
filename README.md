@@ -29,6 +29,7 @@ Selain tombol angkat dan operator, program kami juga menyediakan tombol **Ans**,
 
 ## Code Structure
 <b>Calculator</b>
+<ul>
 <details>
   <summary>main</summary>
   <ul>
@@ -74,6 +75,7 @@ Selain tombol angkat dan operator, program kami juga menyediakan tombol **Ans**,
         <li>NumberRootChecker.java</li>
         <li>OperatorOperatorChecker.java</li>
         <li>RootOperatorChecker.java</li>
+        <li>RootNegChecker.java</li>
         <li>TrigonomChecker.java</li>
       </ul>
     </details>
@@ -156,4 +158,4 @@ Selain tombol angkat dan operator, program kami juga menyediakan tombol **Ans**,
     <li><b>solver</b></li>
   </ul>  
 </details>
-
+</ul>
