@@ -1,23 +1,23 @@
 package checker;
 
-import exception.OperatorOperatorException;
+import exception.RootMinusException;
 
-public class RootOperatorChecker extends Checker{
+public class RootNegChecker extends Checker{
 	
 	/**
-	 * Class RootOperatorChecker 
+	 * Class RootNegChecker 
 	 * untuk melakukan pengecekan apakah terdapat 
-	 * akar dan binary operator yang berdempetan
+	 * akar negatif
 	 */
 	
 	/**
-	 * Constructor untuk membuat RootOperatorChecker
+	 * Constructor untuk membuat RootNegChecker
 	 */
-	public RootOperatorChecker() {}
+	public RootNegChecker() {}
 	
 	/**
 	 * Method check untuk melakukan pengecekan terhadap
-	 * String apakah terdapat akar dan operator yang berdempetan
+	 * String apakah terdapat akar negatif
 	 * 
 	 * @param input (String yang akan dicek)
 	 * @throws Exception (Melakukan throw OperatorOperatorException)
@@ -25,8 +25,8 @@ public class RootOperatorChecker extends Checker{
 	public void check(String input) throws Exception{
 		for(int i = 0; i < input.length() - 1; i++) {
 			if(isRoot(input.charAt(i))) {
-				if(isNotMinus(input.charAt(i+1))) {
-					throw new OperatorOperatorException();
+				if(isMinusUnary(input.charAt(i+1))) {
+					throw new RootMinusException();
 				}
 			}
 		}

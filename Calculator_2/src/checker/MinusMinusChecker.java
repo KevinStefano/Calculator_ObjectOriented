@@ -8,8 +8,7 @@ public class MinusMinusChecker extends Checker{
 	
 	/**
 	 * Class MinusMinusChecker 
-	 * untuk melakukan pengecekan
-	 * apakah ada inputan yang memiliki "--" pada angkanya
+	 * untuk melakukan pengecekan apakah ada inputan yang memiliki "--" pada angkanya
 	 */
 
 	/**
