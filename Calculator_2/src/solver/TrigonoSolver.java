@@ -7,10 +7,11 @@ import expression.unary.TanExpression;
 import expression.unary.CosExpression;
 import expression.TerminalExpression;
 
-public class TrigonoParser extends Solver{
+public class TrigonoSolver extends Solver{
 
-	public TrigonoParser() {}
-	
+	public TrigonoSolver() {}
+
+	@Override
 	public void solve(ArrayList<String> input) {
 		
 		double num_after;
@@ -21,7 +22,7 @@ public class TrigonoParser extends Solver{
 			if(input.get(i).equals("sin") || input.get(i).equals("cos") || input.get(i).equals("tan")) {
 				for(int j = i; j < input.size(); j++) {
 					if(input.get(j).length() > 0) {
-						if(this.isNumber(input.get(j).charAt(0))) {
+						if(this.isNumber(input.get(j).charAt(input.get(j).length()-1))) {
 							num_after = Double.parseDouble(input.get(j));
 							if(input.get(i).equals("sin")) {
 								trigono = new SinExpression(new TerminalExpression(num_after));

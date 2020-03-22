@@ -15,9 +15,9 @@ ArrayList<Button> button = new ArrayList<Button>();
 ArrayList<SpecialButton> specialButton = new ArrayList<SpecialButton>();
 Screen screen = new Screen(this);
 Queue<String> history = new LinkedList<String>();
-float ans = -2.123;
+double ans = -923485;
 Calculate calculate = new Calculate();
-Checker check = new Checker();
+CheckAll check = new CheckAll();
 PImage pim;
 
 void setup(){
@@ -36,8 +36,8 @@ void setup(){
   }
   button.add(new Number(this, "0", 0, (height-70), 70, 70, 0, 0, 0));
   button.add(new Number(this, ".", 70, (height-70), 70, 70, 0, 0, 0));
-  button.add(new Equal(this, 140, height-70, 70, 70, 255, 255, 255));
-
+  
+  specialButton.add(new Equal(this, 140, height-70, 70, 70, 255, 255, 255));
   specialButton.add(new MCButton(this, 0, height-350, 70, 70, 204, 102, 0));
   specialButton.add(new MRButton(this, 70, height-350, 70, 70, 204, 102, 0));
   specialButton.add(new UndoButton(this, 140, height-350, 70, 70, 204, 102, 0));
@@ -74,55 +74,12 @@ void draw(){
 void mouseClicked(){
   for(int i = 0; i < button.size(); i++){
     if(button.get(i).onHover()){
-      try{
-        button.get(i).addText(screen);
-      }
-      catch (Exception e){
-        println(e);
-      }
-      if(button.get(i).getValue().equals("=")){
-        try{
-          check.check(screen.getShow());
-          String answer = calculate.calculate(screen.getShow());
-          screen.setShow(answer);
-          ans = Float.parseFloat(answer);
-        }
-        catch(Exception e){
-          screen.setShow("Error");
-        }
-      }
+      button.get(i).addText(screen);
     }
   }
   for(int i = 0; i < specialButton.size(); i++){
     if(specialButton.get(i).onHover()){
-      if(specialButton.get(i).getValue().equals("MC")){
-        specialButton.get(i).function(screen, history);
-      }
-      else if(specialButton.get(i).getValue().equals("MR")){
-        specialButton.get(i).function(screen, history);
-      }
-      else if(specialButton.get(i).getValue().equals("Ans")){
-        String show = screen.getShow();
-        if(ans != -2.123){
-          show += String.valueOf(ans);
-        }
-        screen.setShow(show);
-      }
-      else if(specialButton.get(i).getValue().equals("AC")){
-        for (int m =0; m<history.size();m++) {
-          history.remove();
-        }
-        screen.setShow("");
-        
-      }
-      else if(specialButton.get(i).getValue().equals("<-")){
-        String temp = screen.getShow();
-        String show = "";
-        if(temp.length() > 0){
-          show = temp.substring(0, temp.length() - 1);
-        }
-        screen.setShow(show);
-      }
+      specialButton.get(i).function(screen, history);
     }
   }
 }

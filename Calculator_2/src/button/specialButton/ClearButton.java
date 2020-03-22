@@ -12,16 +12,16 @@ public class ClearButton extends SpecialButton{
 
 	@Override
 	public boolean isAvailable(Screen screen, Queue<String> history) {
-		if(screen.getShow().length() != 0) {
-			return false;
-		}
 		return true;
 	}
 
 	@Override
 	public void function(Screen screen, Queue<String> history) {
 		if(this.isAvailable(screen, history)) {
-			// CODE
+			for(int i = 0; i < history.size(); i++) {
+				history.remove();
+			}
+			screen.setShow("");
 		}
 	}
 	

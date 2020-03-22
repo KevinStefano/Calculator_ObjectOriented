@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/solver/RootParser.java=UTF-8
+encoding//src/calculate/Calculate.java=UTF-8
+encoding//src/checker/Checker.java=UTF-8
+encoding//src/solver/RootSolver.java=UTF-8

@@ -12,16 +12,13 @@ public class AnsButton extends SpecialButton{
 
 	@Override
 	public boolean isAvailable(Screen screen, Queue<String> history) {
-		if(screen.getShow().length() != 0) {
-			return false;
-		}
 		return true;
 	}
 	
 	@Override
 	public void function(Screen screen, Queue<String> history) {
-		if(this.isAvailable(new Screen(this.papplet), history)) {
-			// CODE
+		if(this.isAvailable(screen, history)) {
+			screen.addShow("ans");
 		}
 	}
 }

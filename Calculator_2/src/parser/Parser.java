@@ -50,9 +50,6 @@ public class Parser {
 		if(!temp_num.equals("")) {
 			this.operation.add(temp_num);
 		}
-		else {
-			this.operation.add(String.valueOf(input.charAt(input.length()-1)));
-		}
 	}
 	
 	private boolean isNumber(char check) {

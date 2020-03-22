@@ -12,16 +12,17 @@ public class UndoButton extends SpecialButton{
 	
 	@Override
 	public boolean isAvailable(Screen screen, Queue<String> history) {
-		if(screen.getShow().length() != 0) {
-			return false;
+		if(screen.getShow().length() > 0) {
+			return true;
 		}
-		return true;
+		return false;
 	}
 	
 	@Override
 	public void function(Screen screen, Queue<String> history) {
 		if(this.isAvailable(screen, history)) {
-			// CODE
+			String show = screen.getShow().substring(0, screen.getShow().length() - 1);
+			screen.setShow(show);
 		}
 	}
 }

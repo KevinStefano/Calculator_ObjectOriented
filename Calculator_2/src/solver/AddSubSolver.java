@@ -5,10 +5,11 @@ import expression.TerminalExpression;
 import expression.binary.AddExpression;
 import expression.binary.SubstractExpression;
 
-public class AddSubParser extends Solver{
+public class AddSubSolver extends Solver{
 
-	public AddSubParser() {}
+	public AddSubSolver() {}
 	
+	@Override
 	public void solve(ArrayList<String> input) {
 		
 		double num_before = 0;

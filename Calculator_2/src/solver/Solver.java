@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 abstract public class Solver {
 	
-	abstract public void solve(ArrayList<String> input);
+	abstract public void solve(ArrayList<String> input) throws Exception;
 	
 	protected boolean isNumber(char check) {
 		int temp = (int) check;

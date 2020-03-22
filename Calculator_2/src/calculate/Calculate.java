@@ -1,6 +1,7 @@
 package calculate;
 
 import java.util.ArrayList;
+
 import parser.Parser;
 import solver.*;
 
@@ -9,7 +10,7 @@ public class Calculate {
 	public Calculate() {}
 	
 	@SuppressWarnings("unchecked")
-	public String calculate(String input_string) {
+	public String calculate(String input_string, double lastAns) throws Exception {
 		
 		ArrayList<String> input;
 		
@@ -17,17 +18,27 @@ public class Calculate {
 		parser.parsing(input_string);
 		
 		input = (ArrayList<String>) parser.getOperation().clone();
-		
+
+		AnsSolver ans = new AnsSolver();
+
 		ArrayList<Solver> solver = new ArrayList<Solver>();
-		solver.add(new RootParser());
-		solver.add(new NegativeParser());
-		solver.add(new TrigonoParser());
-		solver.add(new PowParser());
-		solver.add(new MultDivParser());
-		solver.add(new AddSubParser());
+		solver.add(new NegativeSolver());
+		solver.add(new TrigonoSolver());
+		solver.add(new RootSolver());
+		solver.add(new NegativeSolver());
+		solver.add(new PowSolver());
+		solver.add(new MultDivSolver());
+		solver.add(new AddSubSolver());
 		
+		ans.setLastAns(lastAns);
+		ans.solve(input);
 		for(int i = 0; i < solver.size(); i++) {
-			solver.get(i).solve(input);
+			try {
+				solver.get(i).solve(input);				
+			}
+			catch(Exception e){
+				throw e;
+			}
 		}
 		
 		for(int i = 0; i < input.size(); i++) {
@@ -36,6 +47,6 @@ public class Calculate {
 			}
 			return input.get(i);
 		}
-		return "NaN";
+		return "Error";
 	}
 }

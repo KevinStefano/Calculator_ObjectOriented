@@ -4,10 +4,11 @@ import java.util.*;
 import expression.TerminalExpression;
 import expression.binary.PowerExpression;
 
-public class PowParser extends Solver{
+public class PowSolver extends Solver{
 
-	public PowParser() {}
-	
+	public PowSolver() {}
+
+	@Override
 	public void solve(ArrayList<String> input) {
 		
 		double num_before = 0;

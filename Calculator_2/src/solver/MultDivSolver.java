@@ -1,15 +1,18 @@
 package solver;
 
 import java.util.*;
+
+import exception.DivideByZeroException;
 import expression.TerminalExpression;
 import expression.binary.MultiplyExpression;
 import expression.binary.DivideExpression;
 
-public class MultDivParser extends Solver{
+public class MultDivSolver extends Solver{
 	
-	public MultDivParser() {}
+	public MultDivSolver() {}
 	
-	public void solve(ArrayList<String> input) {
+	@Override
+	public void solve(ArrayList<String> input) throws Exception{
 		
 		double num_before = 0;
 		double num_after = 0;
@@ -37,6 +40,9 @@ public class MultDivParser extends Solver{
 								num_before = mult.solve();
 							}
 							else {
+								if(num_after == 0) {
+									throw new DivideByZeroException();
+								}
 								divide = new DivideExpression(new TerminalExpression(num_before), new TerminalExpression(num_after));
 								num_before = divide.solve();
 							}

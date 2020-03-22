@@ -4,14 +4,16 @@ import java.util.*;
 import expression.TerminalExpression;
 import expression.unary.*;
 
-public class NegativeParser extends Solver{
+public class NegativeSolver extends Solver{
 	
-	public NegativeParser() {}
-	
+	public NegativeSolver() {}
+
+	@Override
 	public void solve(ArrayList<String> input) {
 		
 		double num_after;
 		NegativeExpression neg;
+		boolean found = true;
 		
 		for(int i = 0; i < input.size(); i++) {
 			
@@ -24,11 +26,18 @@ public class NegativeParser extends Solver{
 							neg = new NegativeExpression(new TerminalExpression(num_after));
 							num_after = neg.solve();
 							input.set(j, String.valueOf(num_after));
+							found = true;
+							break;
+						}
+						else {
+							found = false;
 							break;
 						}
 					}
 				}
-				input.set(i, "");
+				if(found) {					
+					input.set(i, "");
+				}
 			}
 			
 			else {
@@ -46,11 +55,18 @@ public class NegativeParser extends Solver{
 											neg = new NegativeExpression(new TerminalExpression(num_after));
 											num_after = neg.solve();
 											input.set(k, String.valueOf(num_after));
+											found = true;
 											break;
-										}										
+										}	
+										else {
+											found = false;
+											break;
+										}
 									}
 								}
-								input.set(j, "");
+								if(found) {
+									input.set(j, "");									
+								}
 								break;
 							}
 							else {
