@@ -9,8 +9,21 @@ import expression.TerminalExpression;
 
 public class TrigonoSolver extends Solver{
 
+	/**
+	 * Class TrigonoSolver 
+	 * untuk menyelesaikan semua operasi trigonom
+	 */
+	
+	/**
+	 * Class TrigonoSolver pembentuk TrigonoSolver
+	 */
 	public TrigonoSolver() {}
 
+	/**
+	 * Method untuk menyelesaikan semua operasi trigonom
+	 * 
+	 * @param input (List yang akan diselesaikan)
+	 */
 	@Override
 	public void solve(ArrayList<String> input) {
 		

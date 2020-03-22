@@ -6,9 +6,22 @@ import expression.binary.AddExpression;
 import expression.binary.SubstractExpression;
 
 public class AddSubSolver extends Solver{
+	
+	/**
+	 * Class AddSubSolver 
+	 * untuk menyelesaikan penjumlahan dan pengurangan
+	 */
 
+	/**
+	 * Constructor pembentuk AddSubSolver
+	 */
 	public AddSubSolver() {}
 	
+	/**
+	 * Method untuk menyelesaikan penjumlahan dan pengurangan
+	 * 
+	 * @param input (List yang akan diselesaikan)
+	 */
 	@Override
 	public void solve(ArrayList<String> input) {
 		

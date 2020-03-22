@@ -9,8 +9,22 @@ import expression.binary.DivideExpression;
 
 public class MultDivSolver extends Solver{
 	
+	/**
+	 * Class MultDivSolver 
+	 * untuk menyelesaikan operasi perkalian dan pembagian
+	 */
+	
+	/**
+	 * Constructor pembentuk MultDivSolver
+	 */
 	public MultDivSolver() {}
 	
+	/**
+	 * Method untuk menyelesaikan penjumlahan dan pengurangan
+	 * 
+	 * @param input (List yang akan diselesaikan)
+	 * @throws Exception (throw DivideByZeroException)
+	 */
 	@Override
 	public void solve(ArrayList<String> input) throws Exception{
 		

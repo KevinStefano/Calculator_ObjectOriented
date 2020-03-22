@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import expression.TerminalExpression;
-import expression.unary.CosExpression;
 
 public class NegativeExpressionTest {
 
