@@ -1,4 +1,4 @@
-# CALCULATOR OOP
+# CALCULATOR FOR FAHMI
 Simple GUI-ed calculator built with Processing using Object oriented Programming paradigm.
 
 ## Contributors
