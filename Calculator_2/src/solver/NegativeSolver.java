@@ -6,8 +6,21 @@ import expression.unary.*;
 
 public class NegativeSolver extends Solver{
 	
+	/**
+	 * Class NegativeSolver 
+	 * untuk menyelesaikan operasi unary negatif
+	 */
+	
+	/**
+	 * Constructor pembentuk NegativeSolver
+	 */
 	public NegativeSolver() {}
 
+	/**
+	 * Method untuk menyelesaikan operasi unary negatif
+	 * 
+	 * @param input (List yang akan diselesaikan)
+	 */
 	@Override
 	public void solve(ArrayList<String> input) {
 		

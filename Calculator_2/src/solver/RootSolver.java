@@ -8,8 +8,22 @@ import expression.unary.*;
 
 public class RootSolver extends Solver{
 
+	/**
+	 * Class RootSolver 
+	 * untuk menyelesaikan semua operasi akar
+	 */
+	
+	/**
+	 * Constructor pembentuk RootSolver
+	 */
 	public RootSolver() {}
 
+	/**
+	 * Method untuk menyelesaikan semua operasi akar
+	 * 
+	 * @param input (List yang akan diselesaikan)
+	 * @throws Exception (throw RootMinusException)
+	 */
 	@Override
 	public void solve(ArrayList<String> input) throws Exception{
 		

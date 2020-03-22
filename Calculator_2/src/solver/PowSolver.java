@@ -6,8 +6,21 @@ import expression.binary.PowerExpression;
 
 public class PowSolver extends Solver{
 
+	/**
+	 * Class PowSolver 
+	 * untuk menyelesaikan semua operasi pemangkatan
+	 */
+	
+	/**
+	 * Constructor pembentuk PowSolver
+	 */
 	public PowSolver() {}
 
+	/**
+	 * Method untuk menyelesaikan operasi pemangkatan
+	 * 
+	 * @param input (List yang akan diselesaikan)
+	 */
 	@Override
 	public void solve(ArrayList<String> input) {
 		

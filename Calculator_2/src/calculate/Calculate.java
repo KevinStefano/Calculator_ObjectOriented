@@ -7,8 +7,24 @@ import solver.*;
 
 public class Calculate {
 	
+	/**
+	 * Class Calculate 
+	 * untuk melakukan perhitungan yang ada pada layar sesuai
+	 * dengan prioritas perhitungan pada umumnya
+	 */
+	
+	/**
+	 * Constructor untuk membuat Calculate
+	 */
 	public Calculate() {}
 	
+	/**
+	 * 
+	 * @param input_string (String layar)
+	 * @param lastAns (Hasil jawaban perhitungan terakhir)
+	 * @return String yang merupakan hasil perhitungan
+	 * @throws exception yang berasal dari class Solver
+	 */
 	@SuppressWarnings("unchecked")
 	public String calculate(String input_string, double lastAns) throws Exception {
 		

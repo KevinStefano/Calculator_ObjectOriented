@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import expression.TerminalExpression;
-import expression.binary.AddExpression;
 
 public class CosExpressionTest {
 

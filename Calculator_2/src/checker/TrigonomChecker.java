@@ -6,8 +6,26 @@ import parser.Parser;
 
 public class TrigonomChecker extends Checker{
 
+	/**
+	 * Class TrigonomChecker 
+	 * untuk melakukan pengecekan apakah terdapat 
+	 * trigonom dan binary operator yang berdempetan
+	 */
+	
+	/**
+	 * Constructor untuk membangun TrigonomChecker
+	 */
 	public TrigonomChecker() {}
 	
+	/**
+	 * Method check untuk melakukan pengecekan 
+	 * terhadap string apakah terdapat trigonom
+	 * dan binary operator yang berdempetan
+	 * 
+	 * @param input (String yang akan dicek)
+	 * @throws Exception (Melakukan throw OperatorOperatorException,
+	 * 						atau EndOperandException)
+	 */
 	public void check(String input) throws Exception{
 		Parser parse = new Parser();
 		parse.parsing(input);
@@ -27,6 +45,13 @@ public class TrigonomChecker extends Checker{
 		}
 	}
 	
+	/**
+	 * Method untuk mengecek apakah inputan adalah
+	 * "sin" atau "cos" atau "tan"
+	 * 
+	 * @param s (String yang akan dicek)
+	 * @return Boolean apakah mengandung sin atau cos atau tan
+	 */
 	private boolean isTrigonom(String s) {
 		if(s.equals("sin") || s.equals("cos") || s.equals("tan")) {
 			return true;
